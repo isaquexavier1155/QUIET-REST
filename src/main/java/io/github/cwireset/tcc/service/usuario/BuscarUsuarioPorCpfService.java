@@ -14,6 +14,6 @@ public class BuscarUsuarioPorCpfService {
 
     public Usuario buscarPorCpf(String cpf) {
         return repository.findByCpf(cpf)
-                .orElseThrow(() -> new RecursoNaoEncontradoException(Usuario.class, cpf, "Id"));
+                .orElseThrow(() -> new RecursoNaoEncontradoException(Usuario.class, cpf, "CPF"));
     }
 }
