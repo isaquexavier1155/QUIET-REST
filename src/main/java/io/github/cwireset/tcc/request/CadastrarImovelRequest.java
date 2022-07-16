@@ -31,7 +31,7 @@ public class CadastrarImovelRequest {
     @NotBlank
     private String identificacao;
 
-    @NotNull
+    @NotNull(message = "Id nao pode ser nullo")
     private Long idProprietario;
 
 
