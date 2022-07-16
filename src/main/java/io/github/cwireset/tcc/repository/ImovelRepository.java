@@ -7,9 +7,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 
 
-public interface ImovelRepository extends PagingAndSortingRepository<Imovel, Long> {
+public interface ImovelRepository extends PagingAndSortingRepository <Imovel, Long> {
 
    Page <Imovel> findAllByProprietarioId(Pageable pageable, Long idProprietario);
 
+   //boolean existsById(Long id);
 
 }

@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ListarTodosAnunciosService {
+
     @Autowired
     private AnuncioRepository anuncioRepository;
+
     public List<Anuncio> listarTodosAnuncios() {
         return anuncioRepository.findAll();
     }

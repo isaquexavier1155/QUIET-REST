@@ -26,8 +26,8 @@ public class AnuncioController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Anuncio anunciarImovel(@RequestBody  CadastrarAnuncioRequest cadastrarAnuncioRequest){
-        return cadastrarAnuncioService.salvarAnuncioImovel(cadastrarAnuncioRequest);
+    public Anuncio anunciarImovel(@RequestBody  CadastrarAnuncioRequest cadastrarAnuncioRequest, Long id){
+        return cadastrarAnuncioService.salvarAnuncioImovel(cadastrarAnuncioRequest, id);
 
     }
     @GetMapping

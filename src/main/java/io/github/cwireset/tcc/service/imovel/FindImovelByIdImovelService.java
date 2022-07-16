@@ -16,5 +16,6 @@ public class FindImovelByIdImovelService {
     public Imovel buscar(Long id) {
         return repository.findById( id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(Imovel.class, id, "Id"));
+        //aqui esta ok id= idImovelBodyPostaman
     }
 }
