@@ -38,6 +38,7 @@ public class CadastrarAnuncioService {
                 .valorDiaria(cadastrarAnuncioRequest.getValorDiaria())
                 .formasAceitas(cadastrarAnuncioRequest.getFormasAceitas())
                 .descricao(cadastrarAnuncioRequest.getDescricao())
+                .excluido(Boolean.FALSE)
                 .build();
 
 

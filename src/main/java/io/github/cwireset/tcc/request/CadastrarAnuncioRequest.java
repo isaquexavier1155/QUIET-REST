@@ -7,6 +7,7 @@ import io.github.cwireset.tcc.domain.Usuario;
 import lombok.*;
 
 import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -19,22 +20,19 @@ import java.util.List;
 
 public class CadastrarAnuncioRequest {
 
+    @NotBlank
     private String descricao;
-
+    @NotBlank
     private long idAnunciante;
-
-    //id imovel esta retornando 0
+    @NotBlank
     private long idImovel;
-
+    @NotBlank
     private TipoAnuncio tipoAnuncio;
 
     private Imovel imovel;
-
+    @NotBlank
     private BigDecimal valorDiaria;
-
-   // private Usuario anunciante;
-
+    @NotBlank
     private List<FormaPagamento> formasAceitas;
-
 
 }
