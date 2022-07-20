@@ -18,4 +18,5 @@ public class BuscarImovelPorIdProprietarioService {
 
         return repository.findAllByProprietarioId(pageable, idProprietario);
     }
+
 }

@@ -41,4 +41,5 @@ public class Anuncio {
    @JsonIgnore
    private Boolean excluido;
 
+   //ok conforme gabari
 }

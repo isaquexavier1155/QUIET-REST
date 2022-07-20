@@ -17,8 +17,6 @@ public class CadastrarAnuncioService {
     @Autowired
     private AnuncioRepository anuncioRepository;
 
-    @Autowired
-    private ImovelRepository imovelRepository;
 
     @Autowired
     private FindImovelByIdImovelService findImovelByIdImovelService;
@@ -26,16 +24,12 @@ public class CadastrarAnuncioService {
     @Autowired
     private BuscarUsuarioPorIdService buscarUsuarioPorIdService;
 
-    @Autowired
-    VerificadorExistenciaAnuncioNoMesmoImovel verificadorExistenciaAnuncioNoMesmoImovel;
-
-
 
     public Anuncio salvarAnuncioImovel(CadastrarAnuncioRequest cadastrarAnuncioRequest, Long id) {
-        //primeiro verifica se existe anuncio para o imovel
+        //primeiro verifica se existe anuncio para o imovel na tabela criada no H2
         //regra nao pode permitir cadastrar dois anuncios no mesmo imovel (idImovel)
-        if(anuncioRepository.existsByImovelIdAndExcluidoFalse(cadastrarAnuncioRequest.getIdImovel())){
-        throw  new RecursoJaExistenteException(Anuncio.class, cadastrarAnuncioRequest.getIdImovel(), "IdImovel");
+        if (anuncioRepository.existsByImovelIdAndExcluidoFalse(cadastrarAnuncioRequest.getIdImovel())) {
+            throw new RecursoJaExistenteException(Anuncio.class, cadastrarAnuncioRequest.getIdImovel(), "IdImovel");
         }
         //se nao existir nenhum anuncio cadastrado para o Imovel passado no postman ele continua a execuçao
 
@@ -45,7 +39,6 @@ public class CadastrarAnuncioService {
 
         //constroi os objetos com a requisicao recebida do body do Postman
         Anuncio anuncio = Anuncio.builder()
-                .imovel(cadastrarAnuncioRequest.getImovel())
                 .imovel(verificaExitenciaImovel)
                 .anunciante(verificaExistenciaAnunciante)
                 .tipoAnuncio(cadastrarAnuncioRequest.getTipoAnuncio())

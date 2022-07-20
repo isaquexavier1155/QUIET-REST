@@ -1,13 +1,12 @@
 package io.github.cwireset.tcc.request;
 
 import io.github.cwireset.tcc.domain.FormaPagamento;
-import io.github.cwireset.tcc.domain.Imovel;
 import io.github.cwireset.tcc.domain.TipoAnuncio;
-import io.github.cwireset.tcc.domain.Usuario;
 import lombok.*;
 
-import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,23 +15,24 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-
 public class CadastrarAnuncioRequest {
 
     @NotBlank
     private String descricao;
-    @NotBlank
+
+    @NotNull
     private long idAnunciante;
-    @NotBlank
+
+    @NotNull
     private long idImovel;
-    @NotBlank
+
+    @NotNull
     private TipoAnuncio tipoAnuncio;
 
-    private Imovel imovel;
-    @NotBlank
+    @NotNull
     private BigDecimal valorDiaria;
-    @NotBlank
+
+    @NotEmpty
     private List<FormaPagamento> formasAceitas;
 
 }

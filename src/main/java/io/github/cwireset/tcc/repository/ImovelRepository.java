@@ -11,6 +11,4 @@ public interface ImovelRepository extends PagingAndSortingRepository <Imovel, Lo
 
    Page <Imovel> findAllByProprietarioId(Pageable pageable, Long idProprietario);
 
-   //boolean existsById(Long id);
-
 }

@@ -33,5 +33,5 @@ public class Imovel {
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "id_imovel")
     private List<CaracteristicaImovel> caracteristicas;
-
+    //ok conforme gabari
 }
