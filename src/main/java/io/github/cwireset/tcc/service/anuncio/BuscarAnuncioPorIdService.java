@@ -1,6 +1,7 @@
 package io.github.cwireset.tcc.service.anuncio;
 
 import io.github.cwireset.tcc.domain.Anuncio;
+import io.github.cwireset.tcc.exception.RecursoJaExistenteException;
 import io.github.cwireset.tcc.exception.RecursoNaoEncontradoException;
 import io.github.cwireset.tcc.repository.AnuncioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ public class BuscarAnuncioPorIdService {
     private AnuncioRepository repository;
 
     public Anuncio buscar(Long id) {
+        Anuncio anuncio = new Anuncio();
         return repository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(Anuncio.class, id, "Id"));
     }

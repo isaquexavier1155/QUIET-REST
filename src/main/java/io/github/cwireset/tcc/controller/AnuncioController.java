@@ -1,6 +1,7 @@
 package io.github.cwireset.tcc.controller;
 
 import io.github.cwireset.tcc.domain.Anuncio;
+import io.github.cwireset.tcc.exception.ExclusaoLogicaJaRealizadaException;
 import io.github.cwireset.tcc.request.CadastrarAnuncioRequest;
 import io.github.cwireset.tcc.service.anuncio.CadastrarAnuncioService;
 import io.github.cwireset.tcc.service.anuncio.DeletarAnuncioService;
@@ -51,7 +52,8 @@ public class AnuncioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletarAnuncio(@PathVariable("id") Long id){
+    @ResponseStatus(HttpStatus.OK)
+    public void deletarAnuncio(@PathVariable("id") Long id) throws ExclusaoLogicaJaRealizadaException {
        deletarAnuncioService.deletarAnuncioPorId(id);
     }
 }
